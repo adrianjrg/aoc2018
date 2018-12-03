@@ -16,7 +16,6 @@ void parseLine(std::string& line, int& id, int& x, int& y, int& width, int& heig
 }
 
 void setClaims(std::map<std::pair<int, int>, int>& claimedSquares, int& x, int& y, int& width, int& height){
-    
     for(size_t i = 0; i < width; i++)
     {
         for(size_t j = 0; j < height; j++)
@@ -29,7 +28,21 @@ void setClaims(std::map<std::pair<int, int>, int>& claimedSquares, int& x, int& 
             }
         }   
     }
-    
+}
+
+bool isOverlapping(std::map<std::pair<int, int>, int>& claimedSquares, int& x, int& y, int& width, int& height){
+    bool overlapping = false;
+    for(size_t i = 0; i < width; i++)
+    {
+        for(size_t j = 0; j < height; j++)
+        {
+            std::pair<int, int> coords(x + i, y + j);
+            if(claimedSquares[coords] != 1){
+                return true;
+            }
+        }   
+    }
+    return overlapping;
 }
 
 int main(int argc, char** args){
@@ -61,5 +74,16 @@ int main(int argc, char** args){
         }
     }
 
+    int nonOverlappingId = -1;
+    for(auto&& line : lines)
+    {
+        parseLine(line, id, x, y, width, height);
+        if(!isOverlapping(claimedSquares, x, y, width, height)){
+            nonOverlappingId = id;
+            break;
+        }
+    }
+
     std::cout << "Part 1 - overlaps: " << overlaps << std::endl;
+    std::cout << "Part 2 - nonoverlapping id: " << nonOverlappingId << std::endl;
 }
