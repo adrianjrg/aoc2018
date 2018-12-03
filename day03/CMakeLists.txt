@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.4)
+project(day03 LANGUAGES CXX)
+
+add_executable(day03 src/main)
+set_target_properties(day03 PROPERTIES
+            CXX_STANDARD 14
+            )
+
+configure_file(input.txt input03.txt COPYONLY)

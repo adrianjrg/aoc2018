@@ -43,7 +43,7 @@ int get_char_difference_count(std::string l1, std::string l2){
 
 int main(int argc, char** args){
     // Import input file
-    std::ifstream input("input.txt");
+    std::ifstream input("input02.txt");
 
     std::vector<std::string> lines;
     std::string line;

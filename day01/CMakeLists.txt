@@ -6,4 +6,4 @@ set_target_properties(day01 PROPERTIES
             CXX_STANDARD 14
             )
 
-configure_file(input.txt input.txt COPYONLY)
+configure_file(input.txt input01.txt COPYONLY)

@@ -33,7 +33,7 @@ int calculate_frequencies(std::vector<std::string> lines, int start = 0){
 
 int main(int argc, char** args){
     // Import input file
-    std::ifstream input("input.txt");
+    std::ifstream input("input01.txt");
 
     std::vector<std::string> lines;
     std::string line;
